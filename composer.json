@@ -1,5 +1,5 @@
 {
-    "name": "taxaos/doctrine-bulk",
+    "name": "c24-toys/doctrine-bulk",
     "description": "Simple classes that allows bulk operations on doctrine entities (only mySQL upsert supported)",
     "type": "library",
     "license": "MIT",
