@@ -28,7 +28,7 @@
     },
     "scripts": {
         "test": [
-            "phpunit -c phpunit.build.xml --testdox --colors=always"
+            "vendor/bin/phpunit -c phpunit.build.xml --testdox --colors=always"
         ],
         "stan": [
             "vendor/bin/phpstan analyse src tests --level 8"

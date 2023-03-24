@@ -1,2 +1,5 @@
 parameters:
     checkGenericClassInNonGenericObjectType: false
+
+includes:
+    - phpstan-baseline.neon
