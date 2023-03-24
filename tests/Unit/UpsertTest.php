@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Tests;
+namespace Tests\Unit;
 
 use DateTime;
 use DoctrineBulk\Bulk\BulkUpsert;
@@ -10,6 +10,7 @@ use DoctrineBulk\Exceptions\FieldNotFoundException;
 use DoctrineBulk\Exceptions\NullValueException;
 use ReflectionClass;
 use ReflectionException;
+use Tests\AbstractBulkTest;
 use Tests\Entity\Author;
 use Tests\Entity\Book;
 use Tests\Entity\Magazine;
