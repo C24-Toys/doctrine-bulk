@@ -82,8 +82,7 @@ class BulkUpsert extends AbstractBulk
         $isProxy = $entity instanceof Proxy;
         $isSubclass = is_subclass_of($entity, $this->class);
 
-        if (!$isSameClass && !($isProxy && $isSubclass)
-        ) {
+        if (!$isSameClass && !($isProxy && $isSubclass)) {
             throw new WrongEntityException($this->class, $entity);
         }
 
