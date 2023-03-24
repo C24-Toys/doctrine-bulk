@@ -9,6 +9,7 @@ use Doctrine\DBAL\Exception\TableNotFoundException;
 use Doctrine\DBAL\Types\ConversionException;
 use Doctrine\ORM\Events;
 use Doctrine\ORM\UnitOfWork;
+use Doctrine\Persistence\Proxy;
 use DoctrineBulk\Exceptions\FieldNotFoundException;
 use DoctrineBulk\Exceptions\MissingParentClassException;
 use DoctrineBulk\Exceptions\NoDefaultValueException;
@@ -77,7 +78,12 @@ class BulkUpsert extends AbstractBulk
      */
     public function addEntity(object $entity, bool $detach): void
     {
-        if (get_class($entity) !== $this->class) {
+        $isSameClass = get_class($entity) === $this->class;
+        $isProxy = $entity instanceof Proxy;
+        $isSubclass = is_subclass_of($entity, $this->class);
+
+        if (!$isSameClass && !($isProxy && $isSubclass)
+        ) {
             throw new WrongEntityException($this->class, $entity);
         }
 
